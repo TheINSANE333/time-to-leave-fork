@@ -47,6 +47,7 @@ function setupIpcHandlers()
     window.calendarApi.handlePunchDate(() =>
     {
         calendar.punchDate();
+        startCountdownTimer();
     });
 
     // Reload theme.
@@ -92,4 +93,5 @@ $(() =>
         });
     });
     setupIpcHandlers();
+    startCountdownTimer();
 });
