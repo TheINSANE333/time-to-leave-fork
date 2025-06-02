@@ -1,17 +1,23 @@
 import { searchLeaveByElement } from '../renderer/notification-channel.js';
 
 let countdownTimer = null;
-export function startCountdownTimer() {
-    if (countdownTimer !== null) {
+const timer = null;
+export function startCountdownTimer()
+{
+    if (countdownTimer !== null)
+    {
         clearInterval(countdownTimer);
     }
-    function updateCountdown() {
+    function updateCountdown()
+    {
         const leaveElement = searchLeaveByElement();
 
-        if (!leaveElement) {
-            const countdownEl = document.getElementById("countdown");
-            if (countdownEl) {
-                countdownEl.innerText = "--:--:--";
+        if (!leaveElement)
+        {
+            const countdownEl = document.getElementById('countdown');
+            if (countdownEl)
+            {
+                countdownEl.innerText = '--:--:--';
             }
             else console.warn('Countdown element not found');
             return;
@@ -26,8 +32,9 @@ export function startCountdownTimer() {
         const now = new Date();
         const diffMs = leaveTime - now;
 
-        if (diffMs <= 0) {
-            const countdownEl = document.getElementById("countdown");
+        if (diffMs <= 0)
+        {
+            // const countdownEl = document.getElementById('countdown');
             clearInterval(countdownTimer);
             clearInterval(timer);
             return;
@@ -37,11 +44,14 @@ export function startCountdownTimer() {
         const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
 
-        const countdownEl = document.getElementById("countdown");
-        if (countdownEl) {
+        const countdownEl = document.getElementById('countdown');
+        if (countdownEl)
+        {
             countdownEl.innerText =
                 `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        } else {
+        }
+        else
+        {
             console.warn('Countdown element not found');
         }
     }
@@ -51,11 +61,14 @@ export function startCountdownTimer() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    function updateCountdown() {
+document.addEventListener('DOMContentLoaded', function()
+{
+    function updateCountdown()
+    {
         const leaveByElement = document.getElementById('leave-by');
-        if (!leaveByElement || !leaveByElement.value || leaveByElement.value === '--:--') {
-            document.getElementById("countdown").innerText = "--:--:--";
+        if (!leaveByElement || !leaveByElement.value || leaveByElement.value === '--:--')
+        {
+            document.getElementById('countdown').innerText = '--:--:--';
             return;
         }
 
@@ -66,8 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const diffMs = leaveTime - now;
 
-        if (diffMs <= 0) {
-            document.getElementById("countdown").innerText = "🎉 Time to leave!";
+        if (diffMs <= 0)
+        {
+            document.getElementById('countdown').innerText = '🎉 Time to leave!';
             clearInterval(timer);
             return;
         }
@@ -76,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const minutesLeft = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
         const secondsLeft = Math.floor((diffMs % (1000 * 60)) / 1000);
 
-        document.getElementById("countdown").innerText =
+        document.getElementById('countdown').innerText =
             `${String(hoursLeft).padStart(2, '0')}:${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
     }
 
