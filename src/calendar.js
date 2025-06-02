@@ -3,9 +3,33 @@
 import { CalendarFactory } from '../renderer/classes/CalendarFactory.js';
 import { applyTheme } from '../renderer/themes.js';
 import { searchLeaveByElement } from '../renderer/notification-channel.js';
+import { startCountdownTimer } from './countdown.js';
 
 // Global values for calendar
 let calendar = undefined;
+
+function setupThemeToggle(preferences)
+{
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeCheckbox = themeToggle.querySelector('input[type="checkbox"]');
+
+    // Set initial state of the checkbox based on current theme
+    themeCheckbox.checked = preferences.theme === 'dark';
+
+    themeToggle.addEventListener('change', (event) =>
+    {
+        const newTheme = event.target.checked ? 'dark' : 'light';
+
+        // Update preferences
+        preferences.theme = newTheme;
+
+        // Apply new theme
+        applyTheme(newTheme);
+
+        // Save preferences and update menu
+        window.rendererApi.savePreferences(preferences);
+    });
+}
 
 function setupCalendar(preferences)
 {
@@ -13,6 +37,7 @@ function setupCalendar(preferences)
     {
         calendar = await CalendarFactory.getInstance(preferences, languageData, calendar);
         applyTheme(preferences.theme);
+        setupThemeToggle(preferences);
     });
 }
 

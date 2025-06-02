@@ -14,7 +14,7 @@ import {
 } from './menus.mjs';
 import Notification from './notification.mjs';
 import UpdateManager from './update-manager.mjs';
-import { getDefaultWidthHeight, getUserPreferences, switchCalendarView } from './user-preferences.mjs';
+import { getDefaultWidthHeight, getUserPreferences, switchCalendarView, savePreferences } from './user-preferences.mjs';
 import i18NextConfig from '../src/configs/i18next.config.mjs';
 import IpcConstants from './ipc-constants.mjs';
 
@@ -114,6 +114,11 @@ function createWindow()
     {
         const notification = Notification.createLeaveNotification(element);
         if (notification) notification.show();
+    });
+
+    ipcMain.on(IpcConstants.PreferencesSaved, (_event, preferences) =>
+    {
+        savePreferences(preferences);
     });
 
     leaveByInterval = setInterval(() =>
