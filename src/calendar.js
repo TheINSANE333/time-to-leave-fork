@@ -13,8 +13,13 @@ function setupThemeToggle(preferences)
     const themeToggle = document.getElementById('theme-toggle');
     const themeCheckbox = themeToggle.querySelector('input[type="checkbox"]');
 
-    // Set initial state of the checkbox based on current theme
-    themeCheckbox.checked = preferences.theme === 'dark';
+    const initTheme = preferences.theme === 'system-default'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : preferences.theme;
+
+    //Set initial state of the checkbox
+    themeCheckbox.checked = initTheme === 'dark';
+    themeToggle.classList.toggle('dark-mode', initTheme === 'dark');
 
     themeToggle.addEventListener('change', (event) =>
     {
@@ -25,8 +30,9 @@ function setupThemeToggle(preferences)
 
         // Apply new theme
         applyTheme(newTheme);
+        themeToggle.classList.toggle('dark-mode', newTheme === 'dark');
 
-        // Save preferences and update menu
+        // Save preferences
         window.rendererApi.savePreferences(preferences);
     });
 }

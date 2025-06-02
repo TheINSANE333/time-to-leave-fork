@@ -1358,19 +1358,19 @@ html[data-view='day'] .punch-button img {
 }
 
 /* Dark mode active */
-.toggle:has(input:checked) {
+.toggle.dark-mode {
     background-color: #fff;
 }
 
-.toggle:has(input:checked) span:nth-of-type(1) {
+.toggle.dark-mode span:nth-of-type(1) {
       translate: 0 0%;
 }
 
-.toggle:has(input:checked) span:nth-of-type(2) {
+.toggle.dark-mode span:nth-of-type(2) {
       translate: 0 -150%;
 }
 
-.toggle:has(input:checked)::before {
+.toggle.dark-mode::before {
     translate: 85% 0;
     background-color: #444;
 }
