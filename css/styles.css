@@ -1415,5 +1415,58 @@ html[data-view='day'] .punch-button img {
     transition: background-color 0.3s;
 }
 
+/* Driver Guide Styles */
+.driver-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
+    z-index: 1000;
+}
+
+.driver-popover {
+    position: absolute;
+    background: #fff;
+    color: #000;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+    z-index: 1001;
+    max-width: 300px;
+}
+
+.driver-highlight {
+    position: relative;
+    z-index: 1002;
+    background: #fff;
+}
+
+.driver-btn {
+    margin: 10px 3px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.driver-btn:hover {
+    background: #0056b3;
+}
+
+/* Dark theme styles */
+html[data-theme="dark"] .driver-popover {
+    background: #2d2d2d;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+html[data-theme="dark"] .driver-highlight {
+    background: #2d2d2d;
+}
+
 
 
