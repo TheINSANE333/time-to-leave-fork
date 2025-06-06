@@ -10,6 +10,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/guidance.css">
 
     <!-- Scripts -->
     <script src="../node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
@@ -20,16 +21,20 @@
 
 <body>
     <!-- Theme Toggle -->
-    <label id="theme-toggle" class="toggle">
+    <label id="theme-toggle" class="toggle" data-guide="Switch between light and dark modes">
         <input type="checkbox">
         <span>&#9728</span> <!-- Sun icon -->
         <span>&#127769</span> <!-- Moon icon -->
     </label>
 
-    <div id="calendar" class="container"></div>
+    <button id="start-guide" class="btn btn-primary">
+        Start Guide
+    </button>
+
+    <div id="calendar" class="container" data-guide="View and manage your work hours calendar"></div>
 
     <!-- Countdown timer -->
-    <div class="container mt-4" style="margin-bottom: 120px;">
+    <div class="container mt-4" style="margin-bottom: 120px;" data-guide="See your remaining work time for today">
         <h5>Time Left to Punch Out:</h5>
         <p id="countdown" style="font-size: 20px; font-weight: bold;">--:--:--</p>
     </div>
@@ -38,6 +43,7 @@
 
     <!-- Countdown logic -->
     <script type="module" src="./countdown.js"></script>
+    <script type="module" src="./guidanceCalendar.js"></script>
 </body>
 
 </html>
