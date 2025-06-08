@@ -1396,6 +1396,8 @@ html[data-view='day'] .punch-button img {
     border-radius: 2rem;
     font-size: 14px;
     transition: background-color 0.3s;
+    background-color: rgb(164 158 207);
+    border: 2px solid rgb(164 158 207);
 }
 
 .driver-btn[disabled] {
@@ -1413,6 +1415,8 @@ html[data-view='day'] .punch-button img {
     border-radius: 2rem;
     font-size: 14px;
     transition: background-color 0.3s;
+    background-color: rgb(164 158 207);
+    border: 2px solid rgb(164 158 207);
 }
 
 
