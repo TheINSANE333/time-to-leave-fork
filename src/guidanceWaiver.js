@@ -40,7 +40,7 @@ $(document).ready(() =>
         {
             element: '#reason',
             title: 'Waiver Reason',
-            description: 'Provide a reason for the waiver (optional, up to 30 characters). This helps track why the waiver was created.',
+            description: 'Provide a reason for the waiver (needed). This helps track why the waiver was created.',
             action: 'ensure-add-waiver-tab'
         },
         {
@@ -71,7 +71,7 @@ $(document).ready(() =>
         {
             element: '#state',
             title: 'Select State/Province',
-            description: 'Select your state or province for region-specific holidays (if applicable).',
+            description: 'Select your state or province for region-specific holidays.',
             action: 'ensure-holiday-tab'
         },
         {
