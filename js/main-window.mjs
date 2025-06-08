@@ -17,6 +17,7 @@ import UpdateManager from './update-manager.mjs';
 import { getDefaultWidthHeight, getUserPreferences, switchCalendarView, savePreferences } from './user-preferences.mjs';
 import i18NextConfig from '../src/configs/i18next.config.mjs';
 import IpcConstants from './ipc-constants.mjs';
+import Windows from './windows.mjs';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -46,6 +47,12 @@ function createMenu()
         {
             label: i18NextConfig.getCurrentTranslation('$Menu.view'),
             submenu: getViewMenuTemplate()
+        },
+        {
+            label: i18NextConfig.getCurrentTranslation('$Menu.preferences'),
+            click() {
+                Windows.openPreferencesWindow(mainWindow);
+            }
         },
         {
             label: i18NextConfig.getCurrentTranslation('$Menu.help'),
