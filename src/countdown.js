@@ -22,9 +22,12 @@ export function startCountdownTimer()
             if (typeof document !== 'undefined')
             {
                 const countdownEl = document.getElementById('countdown');
-                if (countdownEl) {
+                if (countdownEl)
+                {
                     countdownEl.innerText = '--:--:--';
-                } else {
+                }
+                else
+                {
                     console.warn('Countdown element not found');
                 }
             }
@@ -44,7 +47,8 @@ export function startCountdownTimer()
         const diffMs = leaveTime - now;
 
         // If time is up, stop the timer
-        if (diffMs <= 0) {
+        if (diffMs <= 0)
+        {
             clearInterval(countdownTimer);
             clearInterval(timer);
             return;
@@ -56,12 +60,16 @@ export function startCountdownTimer()
         const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
 
         // Update the countdown element in the DOM
-        if (typeof document !== 'undefined') {
+        if (typeof document !== 'undefined')
+        {
             const countdownEl = document.getElementById('countdown');
-            if (countdownEl) {
+            if (countdownEl)
+            {
                 countdownEl.innerText =
                     `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            } else {
+            }
+            else
+            {
                 console.warn('Countdown element not found');
             }
         }
@@ -72,12 +80,16 @@ export function startCountdownTimer()
     countdownTimer = setInterval(updateCountdown, 1000);
 }
 
-if (typeof document !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', function () {
-        function updateCountdown() {
+if (typeof document !== 'undefined')
+{
+    document.addEventListener('DOMContentLoaded', function()
+    {
+        function updateCountdown()
+        {
             const leaveByElement = document.getElementById('leave-by');
             // If no time is set, show default
-            if (!leaveByElement || !leaveByElement.value || leaveByElement.value === '--:--') {
+            if (!leaveByElement || !leaveByElement.value || leaveByElement.value === '--:--')
+            {
                 document.getElementById('countdown').innerText = '--:--:--';
                 return;
             }
@@ -92,7 +104,8 @@ if (typeof document !== 'undefined') {
             const diffMs = leaveTime - now;
 
             // If time is up, show message and stop timer
-            if (diffMs <= 0) {
+            if (diffMs <= 0)
+            {
                 document.getElementById('countdown').innerText = '🎉 Time to leave!';
                 clearInterval(timer);
                 return;

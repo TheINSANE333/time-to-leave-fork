@@ -9,7 +9,7 @@ $(document).ready(() =>
         {
             element: '#calendar',
             title: 'Calendar',
-            description: 'View and manage your work hours calendar here'
+            description: 'View and manage your work hours calendar here. 12-hour clock format and 24-hour clock format can be switched by configuring OS system time format.'
         },
         {
             element: '#countdown',

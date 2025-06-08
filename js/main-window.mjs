@@ -50,7 +50,8 @@ function createMenu()
         },
         {
             label: i18NextConfig.getCurrentTranslation('$Menu.preferences'),
-            click() {
+            click()
+            {
                 Windows.openPreferencesWindow(mainWindow);
             }
         },
