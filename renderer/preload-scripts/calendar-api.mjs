@@ -59,6 +59,7 @@ const calendarApi = {
     setStoreData: (key, contents) => setStoreData(key, contents),
     deleteStoreData: (key) => deleteStoreData(key),
     computeAllTimeBalanceUntilPromise: (targetDate) => computeAllTimeBalanceUntilPromise(targetDate),
+    sendRestartApp: () => ipcRenderer.send('restart-app'),
 };
 
 export {

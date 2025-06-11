@@ -20,15 +20,21 @@
 
 <body>
     <!-- Theme Toggle -->
-    <label id="theme-toggle" class="toggle" data-guide="Switch between light and dark modes">
-        <input type="checkbox">
-        <span>&#9728</span> <!-- Sun icon -->
-        <span>&#127769</span> <!-- Moon icon -->
-    </label>
+    <div class="top-controls">
+        <label id="theme-toggle" class="toggle" data-guide="Switch between light and dark modes">
+            <input type="checkbox">
+            <span>&#9728</span> <!-- Sun icon -->
+            <span>&#127769</span> <!-- Moon icon -->
+        </label>
 
-    <button id="start-guide" class="btn btn-primary">
-        Start Guide
-    </button>
+        <button id="start-guide" class="btn btn-primary">
+            Start Guide
+        </button>
+
+        <button id="time-format" class="btn btn-primary">
+            Switch Time Format
+        </button>
+    </div>
 
     <div id="calendar" class="container" data-guide="View and manage your work hours calendar"></div>
 

@@ -1375,16 +1375,6 @@ html[data-view='day'] .punch-button img {
     background-color: #444;
 }
 
-/* Theme Toggle and Guide Button Container */
-.header-controls {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    z-index: 100;
-}
 
 /* Start Guide Button Styles */
 #start-guide {
@@ -1410,6 +1400,19 @@ html[data-view='day'] .punch-button img {
     position: absolute;
     top: 50px;
     left: 430px;  /* Position it after the toggle button */
+    height: 38px;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    background-color: rgb(164 158 207);
+    border: 2px solid rgb(164 158 207);
+}
+
+#time-format {
+    position: absolute;
+    top: 10px;
+    left: 230px;  /* Position it after the toggle button */
     height: 38px;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
