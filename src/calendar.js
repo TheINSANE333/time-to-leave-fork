@@ -5,8 +5,22 @@ import { applyTheme } from '../renderer/themes.js';
 import { searchLeaveByElement } from '../renderer/notification-channel.js';
 import { startCountdownTimer } from './countdown.js';
 
+
+// contextBridge.exposeInMainWorld('calendarApi', calendarApi);
+
+
 // Global values for calendar
 let calendar = undefined;
+
+function setupTimeFormatButton()
+{
+    const timeFormatButton = document.getElementById('time-format');
+    timeFormatButton.addEventListener('click', () =>
+    {
+        // Use the calendarApi you already have
+        calendarApi.sendRestartApp();
+    });
+}
 
 function setupThemeToggle(preferences)
 {
@@ -115,6 +129,7 @@ $(() =>
     requestAnimationFrame(() =>
     {
         setupCalendar(preferences);
+        setupTimeFormatButton();
         requestAnimationFrame(() =>
         {
             setTimeout(() =>
