@@ -14,7 +14,14 @@ let calendar = undefined;
 
 function setupTimeFormatButton()
 {
+    // Check if running in a browser/Electron renderer environment
+    if (typeof document === 'undefined') return;
+
     const timeFormatButton = document.getElementById('time-format');
+
+    // Ensure the element actually exists
+    if (!timeFormatButton) return;
+
     timeFormatButton.addEventListener('click', () =>
     {
         // Use the calendarApi you already have
@@ -24,9 +31,14 @@ function setupTimeFormatButton()
 
 function setupThemeToggle(preferences)
 {
+    // Get the theme toggle element
     const themeToggle = document.getElementById('theme-toggle');
+    // Get the checkbox element inside the toggle
     const themeCheckbox = themeToggle.querySelector('input[type="checkbox"]');
 
+    // Determine the initial theme
+    // If set to 'system-default', use the current system preference (light or dark)
+    // Else, use the saved user preference
     const initTheme = preferences.theme === 'system-default'
         ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
         : preferences.theme;
@@ -37,6 +49,7 @@ function setupThemeToggle(preferences)
 
     themeToggle.addEventListener('change', (event) =>
     {
+        // Get the new theme based on checkbox state
         const newTheme = event.target.checked ? 'dark' : 'light';
 
         // Update preferences
@@ -44,6 +57,7 @@ function setupThemeToggle(preferences)
 
         // Apply new theme
         applyTheme(newTheme);
+        // Update appearance by toggling dark mode class
         themeToggle.classList.toggle('dark-mode', newTheme === 'dark');
 
         // Save preferences
