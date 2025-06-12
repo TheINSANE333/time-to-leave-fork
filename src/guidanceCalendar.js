@@ -7,6 +7,11 @@ $(document).ready(() =>
             description: 'Switch between light and dark modes to suit your preference'
         },
         {
+            element: '#time-format',
+            title: 'Change Time Format',
+            description: 'Change the time format within 12-hour and 24-hour'
+        },
+        {
             element: '#calendar',
             title: 'Calendar',
             description: 'View and manage your work hours calendar here. 12-hour clock format and 24-hour clock format can be switched by configuring OS system time format.'
