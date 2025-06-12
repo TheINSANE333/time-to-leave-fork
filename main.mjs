@@ -59,8 +59,10 @@ ipcMain.on('restart-app', () =>
     });
 
     console.log('Restarting app...');
-    app.relaunch();
-    app.exit();
+    setTimeout(() => {
+        app.relaunch();
+        app.exit();
+    }, 1000);
 });
 
 ipcMain.on(IpcConstants.SetWaiverDay, (event, waiverDay) =>
