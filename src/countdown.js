@@ -14,10 +14,10 @@ export function startCountdownTimer()
     function updateCountdown()
     {
         // Get the leave time
-        const leaveElement = searchLeaveByElement();
+        const leaveByValue = searchLeaveByElement();
 
         // If leave time is not set, show default countdown
-        if (!leaveElement)
+        if (!leaveByValue || leaveByValue === '--:--')
         {
             if (typeof document !== 'undefined')
             {
@@ -34,10 +34,13 @@ export function startCountdownTimer()
             return;
         }
 
-        // Set up the leave time using the hour and minute from leaveElement
+        // Parse hours and minutes from the input
+        const [hours, minutes] = leaveByValue.split(':').map(Number);
+        
+        // Set up the leave time using the hour and minute
         const leaveTime = new Date();
-        leaveTime.setHours(leaveElement.hour);
-        leaveTime.setMinutes(leaveElement.minute);
+        leaveTime.setHours(hours);
+        leaveTime.setMinutes(minutes);
         leaveTime.setSeconds(0);
         leaveTime.setMilliseconds(0);
 
@@ -55,9 +58,9 @@ export function startCountdownTimer()
         }
 
         // Calculate hours, minutes, seconds left
-        const hours = Math.floor(diffMs / (1000 * 60 * 60));
-        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+        const hoursLeft = Math.floor(diffMs / (1000 * 60 * 60));
+        const minutesLeft = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+        const secondsLeft = Math.floor((diffMs % (1000 * 60)) / 1000);
 
         // Update the countdown element in the DOM
         if (typeof document !== 'undefined')
@@ -66,7 +69,7 @@ export function startCountdownTimer()
             if (countdownEl)
             {
                 countdownEl.innerText =
-                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    `${String(hoursLeft).padStart(2, '0')}:${String(minutesLeft).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
             }
             else
             {
