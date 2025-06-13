@@ -41,7 +41,7 @@
 
    <br/>
 
-  <img src="./docs/images/screenshot.jpg" alt="Time to Leave Screenshot">
+  <img src="./docs/images/screenshot.png" alt="Time to Leave Screenshot">
 
   <br/>
 
@@ -64,7 +64,7 @@ You can also add waivers on the days you did not work.
 
 You can launch a quick start guide to familiarize yourself with the core functionalities of the application more efficiently.
 
-<img src="./docs/images/guide.jpg" alt="Time to Leave Guide"> 
+<img src="./docs/images/guide.png" alt="Time to Leave Guide"> 
 
 ## How to install TTL
 
