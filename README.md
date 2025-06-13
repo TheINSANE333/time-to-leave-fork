@@ -62,6 +62,10 @@ You can also add waivers on the days you did not work.
 
 <img src="./docs/images/waiver_manager.jpg" alt="Time to Leave Waiver Manager">
 
+You can launch a quick start guide to familiarize yourself with the core functionalities of the application more efficiently.
+
+<img src="./docs/images/guide.jpg" alt="Time to Leave Guide"> 
+
 ## How to install TTL
 
 Time to Leave works on MacOS, Windows and Linux, and you can download the desired version from [the latest release](https://github.com/TTLApp/time-to-leave/releases/latest).
