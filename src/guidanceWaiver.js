@@ -106,26 +106,22 @@ $(document).ready(() =>
             if (!$('#add-waiver-tab').hasClass('active'))
             {
                 $('#add-waiver-tab').tab('show');
-                // Alternative if using Bootstrap: $('#add-waiver-tab').click();
             }
             break;
         case 'switch-to-holiday-tab':
             // Switch to Holiday tab
             $('#holiday-tab').tab('show');
-            // Alternative if using Bootstrap: $('#holiday-tab').click();
             break;
         case 'ensure-holiday-tab':
             // Make sure we're on the Holiday tab
             if (!$('#holiday-tab').hasClass('active'))
             {
                 $('#holiday-tab').tab('show');
-                // Alternative if using Bootstrap: $('#holiday-tab').click();
             }
             break;
         case 'switch-to-add-waiver-tab':
             // Switch back to Add Waiver tab
             $('#add-waiver-tab').tab('show');
-            // Alternative if using Bootstrap: $('#add-waiver-tab').click();
             break;
         }
     }

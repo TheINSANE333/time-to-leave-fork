@@ -41,7 +41,7 @@
 
    <br/>
 
-  <img src="./docs/images/screenshot.jpg" alt="Time to Leave Screenshot">
+  <img src="./docs/images/screenshot.png" alt="Time to Leave Screenshot">
 
   <br/>
 
@@ -61,6 +61,10 @@ You can control the preferences, stating your working days, how many hours you w
 You can also add waivers on the days you did not work.
 
 <img src="./docs/images/waiver_manager.jpg" alt="Time to Leave Waiver Manager">
+
+You can launch a quick start guide to familiarize yourself with the core functionalities of the application more efficiently.
+
+<img src="./docs/images/guide.png" alt="Time to Leave Guide"> 
 
 ## How to install TTL
 
